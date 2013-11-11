@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app>
+
+<head>
+    <title>The Paradeiser App</title>
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="../lib/angular.min.js"></script>
+    <script type="text/javascript" src="../lib/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="scripts/TimerController.js"></script>
+</head>
+
+<body>
+
+<header>
+    <h1>
+        Pomodoro
+    </h1>
+</header>
+
+
+<div ng-controller="TimerController">
+
+    <form ng-submit="canvasPaintClock()">
+        <input type="text" ng-model="color" placeholder="green, red, blue"/>
+        <input type="submit" value="Paint"/>
+    </form>
+
+    <form ng-submit="countdown()">
+        <input type="text" ng-model="minutes" placeholder="time in minutes"/>
+        <input type="submit" value="Start"/>
+    </form>
+    <form ng-submit="stopTimer()">
+        <input type="submit" value="Stop"/> <!--ng-disabled="true"-->
+    </form>
+    <span>Time remaining: {{minutes}}:{{seconds}}</span>
+    <br>
+
+    <canvas id="canvas" width="400" height="400">
+    </canvas>
+</div>
+
+<footer class="mainFooter"></footer>
+
+</body>
+
+</html>
